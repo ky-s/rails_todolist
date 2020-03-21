@@ -1,36 +1,28 @@
 <p id="notice"><%= notice %></p>
+<div class="card m-2 mx-auto" style="width: 65%">
+  <div class="card-header">
+    <h3>TODO List</h3>
+  </div>
 
-<h1>Tasks</h1>
+  <div class="card-body">
+    <%= render 'form', task: @new_task %>
+    <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th class="th-sm" style="width: 7%"><%= label :task, :done %></th>
+            <th class="th-sm" style="width: 16%"><%= label :task, :deadline %></th>
+            <th class="th-sm"><%= label :task, :content %></th>
+            <th class="th-sm" style="width: 15%">action</th>
+          </tr>
+        </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-    <tr>
-      <th><%= label :task, :done %></th>
-      <th><%= label :task, :deadline %></th>
-      <th><%= label :task, :content %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+        <tbody>
+          <%= render @tasks %>
+        </tbody>
+      </table>
+    </div>
 
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.done %></td>
-        <td><%= task.deadline %></td>
-        <td><%= task.content %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+    <br>
+  </div>
+</div>
