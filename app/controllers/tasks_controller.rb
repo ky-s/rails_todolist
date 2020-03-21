@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order(:deadline, :done, :content)
     @new_task = Task.new
     @show_done = false
   end
