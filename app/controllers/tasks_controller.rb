@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
     @new_task = Task.new
+    @show_done = false
   end
 
   # GET /tasks/1
